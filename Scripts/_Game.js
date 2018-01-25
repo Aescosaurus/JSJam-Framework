@@ -5,7 +5,7 @@
 const gfx = new Graphics();
 const kbd = new Keyboard();
 const ms = new Mouse();
-const sfx = new Audio();
+const sfx = new AAudio();
 
 const ex = new Example();
 

@@ -1,4 +1,4 @@
-function Audio()
+function AAudio()
 {
 	let sounds = [];
 	let curSound = 0;
