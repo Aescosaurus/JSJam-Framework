@@ -59,7 +59,7 @@ function Vec2( x = 0,y = 0,isConst = false )
 		}
 	}
 	
-	this.Multiply=( other )=>
+	this.Multiply=( amount )=>
 	{
 		if( isConst )
 		{
