@@ -8,6 +8,7 @@ function Graphics()
 	this.ScreenWidth = canv.width;
 	this.ScreenHeight = canv.height;
 	this.ScreenRect = new Rect( 0,0,canv.width,canv.height );
+	this.CanStart = false;
 	// 
 	this.Start=()=>
 	{
@@ -44,6 +45,12 @@ function Graphics()
 		}
 		
 		images.push( new Image() );
+		
+		images[images.length - 1].onload=()=>
+		{
+			this.CanStart = true;
+		}
+		
 		images[images.length - 1].src = url;
 		
 		return( images.length - 1 );
