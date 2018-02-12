@@ -8,7 +8,7 @@ function Graphics()
 	this.ScreenWidth = canv.width;
 	this.ScreenHeight = canv.height;
 	this.ScreenRect = new Rect( 0,0,canv.width,canv.height );
-	this.CanStart = false;
+	this.CanStart = true;
 	// 
 	this.Start=()=>
 	{
@@ -32,7 +32,7 @@ function Graphics()
 		ctx.globalAlpha = alpha;
 	}
 	
-	this.LoadImage=( url )=>
+	this.LoadImage=( url,async = true )=>
 	{
 		for( let i = 0; i < images.length; ++i )
 		{
