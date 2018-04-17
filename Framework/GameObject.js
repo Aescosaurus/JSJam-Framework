@@ -1,45 +1,45 @@
 function GameObject()
 {
-	this.pos = new Vec2( 0,0 );
-	this.size = new Vec2( 50,50 );
-	this.hitbox = new Rect( 0,0,0,0 );
+	this.Pos = new Vec2( 0,0 );
+	this.Size = new Vec2( 50,50 );
+	this.Hitbox = new Rect( 0,0,0,0 );
 	// 
 	this.Draw=( gfx )=>
 	{
-		gfx.DrawRect( this.pos,this.size,"#F00" );
+		gfx.DrawRect( this.Pos,this.Size,"#F00" );
 	}
 	
 	this.MoveTo=( newPos )=>
 	{
-		this.pos = newPos;
+		this.Pos = newPos;
 	}
 	
 	this.MoveBy=( amount )=>
 	{
-		this.pos += amount;
+		this.Pos += amount;
 	}
 	
 	this.SetSize=( newSize )=>
 	{
-		this.size = newSize;
-		this.hitbox.width = newSize.x;
-		this.hitbox.height = newSize.y;
+		this.Size = newSize;
+		this.Hitbox.width = newSize.x;
+		this.Hitbox.height = newSize.y;
 	}
 	
 	this.GetPos=()=>
 	{
-		return this.pos;
+		return this.Pos;
 	}
 	
 	this.GetSize=()=>
 	{
-		return this.size;
+		return this.Size;
 	}
 	
 	this.GetRect=()=>
 	{
-		this.hitbox.MoveTo( this.pos );
-		return this.hitbox;
+		this.Hitbox.MoveTo( this.Pos );
+		return this.Hitbox;
 	}
 	
 	this.Expose=()=>
@@ -47,9 +47,9 @@ function GameObject()
 		console.log( "-----------" );
 		console.log( "GAME OBJECT" );
 		console.log( "-----------" );
-		console.log( "POS: " + "x: " + this.pos.x + " y: " + this.pos.y );
-		console.log( "SIZE: " + "w: " + this.size.x + " h: " + this.size.y );
-		console.log( "RECT: " + "x: " + this.hitbox.x + " y: " + this.hitbox.y +
-			" w: " + this.hitbox.width + " h: " + this.hitbox.height );
+		console.log( "POS: " + "x: " + this.Pos.x + " y: " + this.Pos.y );
+		console.log( "SIZE: " + "w: " + this.Size.x + " h: " + this.Size.y );
+		console.log( "RECT: " + "x: " + this.Hitbox.x + " y: " + this.Hitbox.y +
+			" w: " + this.Hitbox.width + " h: " + this.Hitbox.height );
 	}
 }

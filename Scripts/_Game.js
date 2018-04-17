@@ -15,8 +15,11 @@ window.onload = function()
 	const fps = 60;
 	setInterval( function()
 	{
-		Update();
-		Draw();
+		if( gfx.CanStart )
+		{
+			Update();
+			Draw();
+		}
 	},1000 / fps );
 }
 
