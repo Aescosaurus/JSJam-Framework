@@ -7,6 +7,7 @@ function Graphics()
 	
 	this.ScreenWidth = canv.width;
 	this.ScreenHeight = canv.height;
+	this.ScreenSize = new Vec2( canv.width,canv.height );
 	this.ScreenRect = new Rect( 0,0,canv.width,canv.height );
 	this.CanStart = true;
 	// 
@@ -72,6 +73,13 @@ function Graphics()
 		{
 			ctx.drawImage( images[index],pos.x,pos.y );
 		}
+	}
+	
+	this.DrawImageClip=( index,pos,clipArea,size )=>
+	{
+		ctx.drawImage( images[index],
+			clipArea.x,clipArea.y,clipArea.width,clipArea.height,
+			pos.x,pos.y,size.x,size.y );
 	}
 	
 	this.DrawRect=( pos,size,c )=>

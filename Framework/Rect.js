@@ -40,4 +40,11 @@ function Rect( x,y,w,h )
 		return( new Rect( this.x + amount.x,this.y + amount.y,
 			this.width,this.height ) );
 	}
+	
+	this.Clone=()=>
+	{
+		return( new Rect( this.x,this.y,this.width,this.height ) );
+	}
+	
+	return( this );
 }

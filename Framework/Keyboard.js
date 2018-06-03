@@ -1,41 +1,12 @@
 function Keyboard()
 {
-	function KeyPress( e )
-	{
-		this.key = e.key.toUpperCase();
-		this.keyCode = e.keyCode;
-	}
-	// 
 	let keyMap = [];
-	let pressedKeys = [];
-	
-	let nKeysPressed = 0;
 	// 
 	this.Start=()=>
 	{
-		onkeydown = onkeyup = ( e ) =>
+		onkeydown = onkeyup=( e )=>
 		{
-			const keyIsPressed = ( e.type == 'keydown' );
-			keyMap[e.keyCode] = keyIsPressed;
-			
-			if( keyIsPressed )
-			{
-				++nKeysPressed;
-				
-				pressedKeys.push( new KeyPress( e ) );
-			}
-			else if( nKeysPressed > 0 )
-			{
-				--nKeysPressed;
-				
-				for( let i = 0; i < pressedKeys.length; ++i )
-				{
-					if( pressedKeys[i].keyCode == e.keyCode )
-					{
-						pressedKeys.splice( i,1 );
-					}
-				}
-			}
+			keyMap[e.keyCode] = ( e.type == 'keydown' );
 		}
 	}
 	
@@ -52,10 +23,5 @@ function Keyboard()
 	this.AnyKey=()=>
 	{
 		return nKeysPressed > 0;
-	}
-	
-	this.ActiveKeys=()=>
-	{
-		return pressedKeys;
 	}
 }

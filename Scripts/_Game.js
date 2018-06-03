@@ -5,21 +5,16 @@
 const gfx = new Graphics();
 const kbd = new Keyboard();
 const ms = new Mouse();
-const sfx = new AAudio();
-
-const ex = new Example();
+const sfx = new Sound();
 
 window.onload = function()
 {
 	Start();
-	const fps = 60;
+	const fps = 30;
 	setInterval( function()
 	{
-		if( gfx.CanStart )
-		{
-			Update();
-			Draw();
-		}
+		Update();
+		Draw();
 	},1000 / fps );
 }
 
@@ -29,22 +24,19 @@ function Start()
 	ms.Start( gfx.GetCanvas() );
 	gfx.Start();
 	// Initialize below!
-	ex.Start( gfx );
 	
 }
 
 function Update()
 {
 	// Update below.
-	ex.Update( ms );
 	
 }
 
 function Draw()
 {
-	gfx.DrawRect( new Vec2( 0,0 ),new Vec2( gfx.ScreenWidth,gfx.ScreenHeight ),"#000" );
+	gfx.DrawRect( Vec2( 0,0 ),gfx.ScreenSize,"black" );
 	// Draw below.
-	ex.Draw( gfx );
 	
 }
-})()
+})();

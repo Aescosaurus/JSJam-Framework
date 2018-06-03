@@ -42,6 +42,16 @@ function Mouse()
 		} );
 	}
 	
+	this.GetPosX=()=>
+	{
+		return( pos.x );
+	}
+	
+	this.GetPosY=()=>
+	{
+		return( pos.y );
+	}
+	
 	this.GetPos=()=>
 	{
 		return pos;

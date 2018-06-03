@@ -47,8 +47,3 @@ function Random(){}
 	{
 		return( Random.RangeF( 0,100 ) < percentChance );
 	}
-function Str(){}
-	Str.FirstUpperCase=( str )=>
-	{
-		return( str.charAt( 0 ).toUpperCase() + str.slice( 1 ) );
-	}
