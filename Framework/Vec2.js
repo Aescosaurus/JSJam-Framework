@@ -91,7 +91,7 @@ function Vec2( x = 0,y = 0 )
 	
 	this.Clone=()=>
 	{
-		return( new Vec2( x,y ) );
+		return( new Vec2( this.x,this.y ) );
 	}
 	
 	return( this );
