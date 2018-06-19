@@ -1,4 +1,4 @@
-function Rect( x,y,w,h )
+function Rect_( x,y,w,h )
 {
 	this.x = x;
 	this.y = y;
@@ -19,8 +19,13 @@ function Rect( x,y,w,h )
 	
 	this.Overlaps=( other )=>
 	{
-		return ( other.x < this.x + this.width && other.x + other.width > this.x &&
+		return( other.x < this.x + this.width && other.x + other.width > this.x &&
 		         other.y < this.y + this.height && other.y + other.height > this.y );
+	}
+	
+	this.IsOverlappingWith=( other )=>
+	{
+		return( this.Overlaps( other ) );
 	}
 	
 	this.MoveBy=( amount )=>
@@ -35,7 +40,7 @@ function Rect( x,y,w,h )
 		this.y = pos.y;
 	}
 	
-	this.GetMovedBy=( amount )=>
+	this.GetMoved=( amount )=>
 	{
 		return( new Rect( this.x + amount.x,this.y + amount.y,
 			this.width,this.height ) );
@@ -45,6 +50,9 @@ function Rect( x,y,w,h )
 	{
 		return( new Rect( this.x,this.y,this.width,this.height ) );
 	}
-	
-	return( this );
+}
+
+function Rect( x,y,w,h )
+{
+	return( new Rect_( x,y,w,h ) );
 }

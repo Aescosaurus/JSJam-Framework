@@ -1,4 +1,4 @@
-function Vec2( x = 0,y = 0 )
+function Vec2_( x = 0,y = 0 )
 {
 	this.x = x;
 	this.y = y;
@@ -11,48 +11,48 @@ function Vec2( x = 0,y = 0 )
 		return this;
 	}
 	
-	this.GetAdded=( other )=>
+	this.GetAdd=( other )=>
 	{
 		return( this.Clone().Add( other ) );
 	}
 	
-	this.Subtract=( other )=>
+	this.Sub=( other )=>
 	{
 		this.x -= other.x;
 		this.y -= other.y;
 		
-		return this;
+		return( this );
 	}
 	
-	this.GetSubtracted=( other )=>
+	this.GetSub=( other )=>
 	{
 		return( this.Clone().Subtract( other ) );
 	}
 	
-	this.Multiply=( amount )=>
+	this.Mult=( amount )=>
 	{
 		this.x *= amount;
 		this.y *= amount;
 		
-		return this;
+		return( this );
 	}
 	
-	this.GetMultiplied=( amount )=>
+	this.GetMult=( amount )=>
 	{
-		return( this.Clone().Multiply( amount ) );
+		return( this.Clone().Mult( amount ) );
 	}
 	
-	this.Divide=( amount )=>
+	this.Div=( amount )=>
 	{
 		this.x /= amount;
 		this.y /= amount;
 		
-		return this;
+		return( this );
 	}
 	
-	this.GetDivided=( amount )=>
+	this.GetDiv=( amount )=>
 	{
-		return( this.Clone().Divide( amount ) );
+		return( this.Clone().Div( amount ) );
 	}
 	
 	this.Normalize=()=>
@@ -60,13 +60,13 @@ function Vec2( x = 0,y = 0 )
 		const div = Math.sqrt( this.x * this.x + this.y * this.y );
 		if( div === 0 )
 		{
-			return;
+			return( this );
 		}
 		
 		this.x = this.x / div;
 		this.y = this.y / div;
 		
-		return this;
+		return( this );
 	}
 	
 	this.GetNormalized=()=>
@@ -76,7 +76,7 @@ function Vec2( x = 0,y = 0 )
 	
 	this.GetLengthSq=()=>
 	{
-		return( x * x + y * y );
+		return( this.x * this.x + this.y * this.y );
 	}
 	
 	this.GetLength=()=>
@@ -93,6 +93,9 @@ function Vec2( x = 0,y = 0 )
 	{
 		return( new Vec2( this.x,this.y ) );
 	}
-	
-	return( this );
+}
+
+function Vec2( x = 0,y = 0 )
+{
+	return( new Vec2_( x,y ) );
 }
